@@ -1,0 +1,19 @@
+
+.myFile{
+    border: solid;
+    border-color: black;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+}
+.myFile.active{
+    background:#daa580;
+}
+.button{
+    font-size: 15px;
+    padding: 10px 25px;
+}
