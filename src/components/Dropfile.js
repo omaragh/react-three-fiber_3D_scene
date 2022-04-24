@@ -1,5 +1,4 @@
 import ReactFileReader from "react-file-reader";
-import { useState } from 'react';
 import React from "react";
 
 class Drop extends React.Component {

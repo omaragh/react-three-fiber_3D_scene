@@ -1,29 +1,26 @@
-import React, { useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Center, Environment, OrbitControls } from "@react-three/drei";
-import { Suspense } from "react";
-import Model from "./components/Model";
-import Drop from "./components/Dropfile";
+import React from "react";
+
+import styles from "./App.module.css";
+import Nav from "./components/HeaderNav";
+import SearchBar from "./components/SearchBar";
+import CanvasField from "./components/Canvas";
 
 class App extends React.Component { 
-  state = { url: "./out.glb" }
-  callbackFunction = (childData) => {
-    this.setState({url: childData})
-  }; 
+
+
   render() {
     return (
       <div>
-        <Canvas style={{height:500,width:600}} >
-          <Suspense fallback={null}>
-            <Center position={[5, 5, 10]} > 
-              <Model value={this.state.url}/>
-              </Center>
-            <OrbitControls />
-            <Environment preset="sunset" background />
-          </Suspense>
-        </Canvas>
-        <Drop parentCallback={this.callbackFunction}/>
-        <p> {this.state.url} </p>
+        <div className={styles.Nav}>
+          <Nav></Nav>
+        </div>
+        
+        <div className={styles.Content}>
+        <SearchBar></SearchBar>
+          <div>
+            <CanvasField></CanvasField>
+          </div>
+        </div>
       </div>
     );
   }    
