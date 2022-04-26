@@ -1,0 +1,14 @@
+https://discourse.threejs.org/t/dynamically-apply-fbx-animation-to-model/35737/2
+https://sbcode.net/threejs/fbx-animation/
+https://github.com/pmndrs/react-three-fiber/discussions/1711
+https://github.com/pmndrs/react-three-fiber/discussions/1993
+https://github.com/pmndrs/react-three-fiber/discussions/795
+https://discourse.threejs.org/t/is-there-any-way-to-import-animation-and-model-saperately/19785/2
+https://sbcode.net/threejs/gltf-animation/
+https://discourse.threejs.org/search?q=import%20%23animation
+https://discourse.threejs.org/t/load-gltf-animation-without-mesh/36539/2
+https://discourse.threejs.org/t/adding-animation-from-blender-to-my-already-import-model/22563
+https://blender.stackexchange.com/questions/119145/export-a-keyframed-animation-made-in-blender-to-three-js-no-bones-involved
+https://henryegloff.com/how-to-load-gltf-animations-as-separate-files-in-three-js/
+https://codesandbox.io/s/react-three-fiber-gltf-loader-animations-forked-wkpkdb?file=/src/index.js
+https://codesandbox.io/s/react-three-fiber-gltf-loader-animations-forked-wkpkdb?file=/src/index.js

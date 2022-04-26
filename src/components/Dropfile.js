@@ -3,7 +3,7 @@ import React from "react";
 
 class Drop extends React.Component {
   sendData = (files) => {
-    console.log(files);
+    //console.log(files);
     this.props.parentCallback(files.base64);
   };
   render(){

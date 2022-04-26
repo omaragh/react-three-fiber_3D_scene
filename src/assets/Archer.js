@@ -8,7 +8,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 export default function Model({ action}) {
   
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/archer.glb');
+  const { nodes, materials, animations } = useGLTF('/Archer.glb');
   
   console.log(nodes);
   const { actions } = useAnimations(animations, group);
