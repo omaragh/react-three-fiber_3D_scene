@@ -1,5 +1,6 @@
 import ReactFileReader from "react-file-reader";
 import React from "react";
+import styles from "./Dropfile.module.css"
 
 class Drop extends React.Component {
   sendData = (files) => {

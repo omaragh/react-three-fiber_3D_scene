@@ -1,14 +1,18 @@
 import React from "react";
+import styles from "./ActionButtons.module.css"
 
-import styles from "./HeaderNav.module.css"
-import {FaUserAlt} from 'react-icons/fa';
+function ShowAllButtons(props){
+  let arrButtons = [];
+  const propData = props.sendInfo
+      for (let i = 0; i < propData.length/2; i++) { 
+        arrButtons.push(<button className={styles.ActionButton} onClick={() =>props.updateAnim(i)} key={i}>{propData[i].name}</button>)
+      }
 
-function Nav(){
-        return (
-          <div>
-            <button className={styles.UserIcon} ><FaUserAlt></FaUserAlt>Log in</button>
-          </div>
-        );
+  return (
+    <div> 
+      {console.log(arrButtons)}
+      {arrButtons}
+    </div>
+  )
 }
-
-export default Nav;
+export default ShowAllButtons;

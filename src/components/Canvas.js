@@ -4,47 +4,56 @@ import { Center, Environment, OrbitControls } from "@react-three/drei";
 import Model from "./Model";
 import Drop from "./Dropfile";
 import styles from "./Canvas.module.css";
+import ShowAllButtons from "./ActionButtons";
 
-
-class CanvasField extends React.Component { 
-  state = { url: "./Xbot.glb",
-            movement:2
-          }
-
-  callbackFunction = (childData) => {
-    this.setState({url: childData})
+function CanvasField() { 
+    const [url, setUrl] = useState("./Xbot.glb")
+    const [movement, setMovement] = useState(0)
+    const [allData, setAllData] = useState([])
+    // state = {url: null,
+    //               movement:0,
+    //               allData: [],
+    //               }
+  
+  function callbackFunction(childData){
+    setUrl(childData);
+    setMovement(0);
+    setAllData([])
   }; 
 
-  updateAction = (data)=>{
-    this.setState({movement: data})
+  function updateAction(data){
+    setMovement(data);
   }
-  
-  render() {
-    return (
+
+  function handleData (info){
+    let arr = [];
+    if(allData.length <1){
+      arr.push(...info)  
+    } 
+    arr.forEach(element => {
+      setAllData(oldArray => [...oldArray, element]);
+    });
+  }
+    return ( 
         <div>
-          <div className="controls">
-          <button onClick={() =>this.updateAction(0)}>Agree</button>
-          <button onClick={() =>this.updateAction(1)}>Headshake</button>
-          <button onClick={() =>this.updateAction(2)}>Idle</button>
-          <button onClick={() =>this.updateAction(3)}>Run</button>
-          <button onClick={() =>this.updateAction(4)}>sad</button>
-          <button onClick={() =>this.updateAction(6)}>walk</button>
-        </div>
-          <div className={styles.canvasArea}>
+          <Drop parentCallback={callbackFunction}/>
+          <div className={styles.canvasArea}>  
             <Canvas style={{height:500,width:800}}>
               <Suspense fallback={null}>
                 <Center position={[5, 5, 10]} > 
-                  <Model value={this.state.url} action={this.state.movement} />
+                {url ? <Model value={url} action={movement} handleData={handleData}/>: null} 
                 </Center>
                 <OrbitControls/>
                 <Environment preset="sunset"  background={true}/>
               </Suspense>
             </Canvas>
+          </div>  
+            
+          <div className="controls">
+            {url? <ShowAllButtons sendInfo={allData} updateAnim={updateAction}/>: null}
           </div>
-          <Drop parentCallback={this.callbackFunction}/>
         </div>
     );
   }    
-}
 
 export default CanvasField;

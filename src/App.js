@@ -14,11 +14,10 @@ class App extends React.Component {
         <div className={styles.Nav}>
           <Nav></Nav>
         </div>
-        
         <div className={styles.Content}>
         <SearchBar></SearchBar>
           <div>
-            <CanvasField></CanvasField>
+            <CanvasField/>
           </div>
         </div>
       </div>
