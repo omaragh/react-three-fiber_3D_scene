@@ -17,11 +17,15 @@ export default function Model(props) {
     }
     
     useEffect(()=> {
-        if(gltf.animations !== 0){
+        
         if (gltf) {
-            mixer.current = new THREE.AnimationMixer(gltf.scene)
-            const action = mixer.current.clipAction(allAnimations[actions])
-            action.play();
+            if(gltf.animations.length !== 0){
+                mixer.current = new THREE.AnimationMixer(gltf.scene)
+                const action = mixer.current.clipAction(allAnimations[actions])
+                action.play();
+                console.log("true")
+        }else{
+            alert("This model does not have an animation, proceed to continue")
         }
     }}, [gltf, allAnimations, actions])
     
