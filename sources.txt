@@ -12,3 +12,8 @@ https://blender.stackexchange.com/questions/119145/export-a-keyframed-animation-
 https://henryegloff.com/how-to-load-gltf-animations-as-separate-files-in-three-js/
 https://codesandbox.io/s/react-three-fiber-gltf-loader-animations-forked-wkpkdb?file=/src/index.js
 https://codesandbox.io/s/react-three-fiber-gltf-loader-animations-forked-wkpkdb?file=/src/index.js
+https://codesandbox.io/s/jflps?file=/src/App.js:2267-2268
+https://threejs.org/docs/?q=export#examples/en/exporters/GLTFExporter
+https://codesandbox.io/s/reflectorplanes-and-bloom-forked-wmy76l?file=/src/App.js
+https://threejs.org/examples/#misc_exporter_gltf
+https://www.youtube.com/watch?v=tD0NYabdf5Q

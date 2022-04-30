@@ -19,6 +19,7 @@ class App extends React.Component {
           <div>
             <CanvasField/>
           </div>
+          
         </div>
       </div>
     );

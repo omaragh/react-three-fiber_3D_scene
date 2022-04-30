@@ -6,6 +6,7 @@ import { useGLTF } from '@react-three/drei'
 
 export default function Model(props) {
     const mixer= useRef();
+ 
     const gltf = useGLTF(props.value);
     const allAnimations = []
     const actions = props.action
@@ -13,7 +14,7 @@ export default function Model(props) {
         allAnimations.push(gltf.animations[i])
     }
     const newVal =()=>{
-        props.handleData(allAnimations);
+        props.handleData(gltf);
     }
     
     useEffect(()=> {
@@ -23,7 +24,6 @@ export default function Model(props) {
                 mixer.current = new THREE.AnimationMixer(gltf.scene)
                 const action = mixer.current.clipAction(allAnimations[actions])
                 action.play();
-                console.log("true")
         }else{
             alert("This model does not have an animation, proceed to continue")
         }
@@ -32,7 +32,7 @@ export default function Model(props) {
     useFrame((state, delta) => {
         mixer.current.update(delta) 
     })
-
+    
     return (
       <>
          {/* <primitive object={gltf.scene}  /> */}
