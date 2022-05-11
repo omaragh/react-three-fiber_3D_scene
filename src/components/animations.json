@@ -1,0 +1,26 @@
+[
+    {
+        "name": "jump down",
+        "url": "./anims/jumpDown.glb"
+    },
+    {
+        "name": "pray",
+        "url": "./anims/pray Anim.glb"
+    },
+    {
+        "name": "run",
+        "url": "./anims/running.glb"
+    },
+    {
+        "name": "sit",
+        "url": "./anims/sitting.glb"
+    },
+    {
+        "name": "torch",
+        "url": "./anims/torch.glb"
+    },
+    {
+        "name": "Block",
+        "url": "./anims/Block.glb"
+    }
+]

@@ -4,10 +4,14 @@ import styles from "./App.module.css";
 import Nav from "./components/HeaderNav";
 import SearchBar from "./components/SearchBar";
 import CanvasField from "./components/Canvas";
-
+// import AnimationList from "./components/LoadAnimations";
 class App extends React.Component { 
-
-
+  // state = {
+  //   newAnim: null
+  // }
+  // updateCurrentAnim = (animData)=>{
+  //   this.setState({newAnim: animData})
+  // }
   render() {
     return (
       <div>
@@ -17,7 +21,10 @@ class App extends React.Component {
         <div className={styles.Content}>
         <SearchBar></SearchBar>
           <div>
-            <CanvasField/>
+            <CanvasField />
+          </div>
+          <div>
+            {/* <AnimationList runFunc={this.updateCurrentAnim}/> */}
           </div>
           
         </div>

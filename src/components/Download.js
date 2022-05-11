@@ -1,22 +1,20 @@
 import {GLTFExporter} from 'three/examples/jsm/exporters/GLTFExporter.js';
 
 function ExportGltf(props){
-    let downData = props.downloadModel
-    let animationValue = props.currentAnim
+
   function Download(){
     const options = {
         binary: true,
         maxTextureSize: 4096,
-        animations: [downData.animations[animationValue]],
+        animations: [props.downloadModel.animations[props.currentAnim]],
         includeCustomExtensions: true
       }
-
+      
     const exporter = new GLTFExporter();
     exporter.parse(
-        downData.scene,
+        props.downloadModel.scene,
         function(result){
             saveArrayBuffer(result, 'SavedScene.glb')
-            console.log(result)
         },options)
    }
    
@@ -30,8 +28,6 @@ function ExportGltf(props){
        link.download = fileName;
        link.click()
    }
-
-   
     return(
         <>
             <button id="downl" onClick={Download}>Download model</button>

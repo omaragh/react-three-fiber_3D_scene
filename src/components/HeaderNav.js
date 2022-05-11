@@ -5,8 +5,9 @@ import {FaUserAlt} from 'react-icons/fa';
 
 function Nav(){
         return (
-          <div>
-            <button className={styles.UserIcon} ><FaUserAlt></FaUserAlt>Log in</button>
+          <div className="nav">
+            <img className={styles.logo}src="./logo3.png" width="100px" alt="logo"></img>
+            <button className={styles.UserIcon} ><FaUserAlt></FaUserAlt> Community hub</button>
           </div>
         );
 }

@@ -16,4 +16,4 @@ https://codesandbox.io/s/jflps?file=/src/App.js:2267-2268
 https://threejs.org/docs/?q=export#examples/en/exporters/GLTFExporter
 https://codesandbox.io/s/reflectorplanes-and-bloom-forked-wmy76l?file=/src/App.js
 https://threejs.org/examples/#misc_exporter_gltf
-https://www.youtube.com/watch?v=tD0NYabdf5Q
+https://stackoverflow.com/questions/69035148/exporting-an-animated-scene-with-gltfexporter-in-threejs

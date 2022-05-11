@@ -1,47 +1,58 @@
-import React, { Suspense, useEffect, useState, useRef } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls, useTexture, Reflector, useGLTF } from "@react-three/drei";
+import { Center, OrbitControls, useTexture, Reflector, Html, useProgress, Sky } from "@react-three/drei";
 import Model from "./Model";
 import Drop from "./Dropfile";
 import styles from "./Canvas.module.css";
 import ShowAllButtons from "./ActionButtons";
-import {GLTFExporter} from 'three/examples/jsm/exporters/GLTFExporter.js';
 import ExportGltf from "./Download";
+import AnimationList from "./LoadAnimations";
+// state = {
+//   newAnim: null
+// }
+// updateCurrentAnim = (animData)=>{
+//   this.setState({newAnim: animData})
+// }
 
 function CanvasField() { 
-    const [url, setUrl] = useState("./Xbot.glb")
-    const [movement, setMovement] = useState(0)
-    const [allData, setAllData] = useState([])
-    const [downloadData, setDownload] = useState();
-    // state = {url: null,
-    //               movement:0,
-    //               allData: [],
-    //               }
-  
+  const [url, setUrl] = useState("./botTest.glb")
+  const [movement, setMovement] = useState(0)
+  const [allAnimData, setAllAnimData] = useState([])
+  const [downloadData, setDownload] = useState();
+  const [selectedAnim, setAnim] = useState(null);
   function callbackFunction(childData){
     setUrl(childData);
     setMovement(0);
-    setAllData([])
+    setAllAnimData([])
+    setDownload()
+    setAnim(null)
   }; 
 
   function updateAction(data){
     setMovement(data);
   }
 
-  function handleData (info){
-    setDownload(info)
-    let arr = [];
-    if(allData.length <1){
-      arr.push(...info.animations)  
-    } 
-    arr.forEach(element => {
-      setAllData(oldArray => [...oldArray, element]);
-    });
+  function handleData (gltfAnimations){
+    if(allAnimData.length < 1){
+      setAllAnimData(gltfAnimations)
+      setDownload(gltfAnimations)
+    }
+  //   setAllAnimData(gltfAnimations.animations) 
   }
+
+  const updateToNewAnim = (animData)=>{
+    let arr = []
+    if(allAnimData.includes(animData)){
+      console.log("zit er in")
+    }else{arr.push(animData)
+      setAllAnimData((oldArray)=>[...oldArray, animData])
+      setAnim(animData)}
+  }
+
   function Ground(props) {
     const [floor, normal] = useTexture(['/SurfaceImperfections003_1K_var1.jpg', '/SurfaceImperfections003_1K_Normal.jpg'])
     return (
-      <Reflector resolution={1980} args={[14, 14]} {...props}>
+      <Reflector resolution={1024} args={[10, 10]} {...props}>
         {(Material, props) => <Material color="#f0f0f0" metalness={0} roughnessMap={floor} normalMap={normal} normalScale={[2, 2]} {...props} />}
       </Reflector>
     )
@@ -61,7 +72,7 @@ function CanvasField() {
         height={3}
         color={color}
         intensity={brightness}
-        position={[-2, 0, 5]}
+        position={[-2, 0, 10]}
         lookAt={[0, 0, 0]}
         penumbra={1}
         castShadow
@@ -75,7 +86,7 @@ function CanvasField() {
         height={3}
         intensity={brightness}
         color={color}
-        position={[2, 1, 4]}
+        position={[2, 1, 10]}
         lookAt={[0, 0, 0]}
         penumbra={2}
         castShadow
@@ -97,31 +108,36 @@ function CanvasField() {
     );
   }
   
+  function Loader(){
+    const {progress} = useProgress()
+    return <Html center style={{color: "red"}}> {progress} % loaded</Html>
+  }
     return ( 
-      
-        <div>
-          <Drop parentCallback={callbackFunction}/>
+        <div className={styles.wholeCanvas}>
+          <div className={styles.controls}>
+            {url? <ShowAllButtons className={styles.knopje} sendInfo={allAnimData} updateAnim={updateAction}/>: null}
+          </div>
           <div className={styles.canvasArea}>  
-            <Canvas style={{height:500,width:800}} dpr={[1, 1.5]} camera={{ position: [0, 0, 9] }}>
-            <color attach="background" args={['black']} />
-              <Suspense fallback={null}>
-                <Center position={[5, 5, 10]} > 
-                  <BackDrop/>
+            <Canvas style={{height:500,width:800}} dpr={[0, 1]} camera={{ position: [0, 0, 5] }}>
+            <Sky distance={450000} sunPosition={[5, 1, 8]} inclination={0} azimuth={0.25} />
+              <Suspense fallback={<Loader/>}>
+                <Center position={[5, 2, 5]} > 
+                  {/* <BackDrop/> */}
                   <KeyLight brightness={5.6} color={"#ffc9f9"}/>
                   <FillLight brightness={2.6} color={"#bdefff"} />
                   <RimLight brightness={54} color={"#fff"} />
-                  {url ? <Model value={url} action={movement} handleData={handleData}/>: null} 
-                  <Ground mirror={1} blur={[500, 100]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={-0.8} />
+                  {url ? <Model value={url} action={movement} chosenAnim={selectedAnim} handleData={handleData}/>: null} 
+                  <Ground mirror={1} blur={[500, 100]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={0} />
                 </Center>
                 <OrbitControls />
-                  {/* <Environment preset="sunset"  background={true}/> */}
               </Suspense>
             </Canvas>
           </div>  
-          <div className="controls">
-            {url? <ShowAllButtons sendInfo={allData} updateAnim={updateAction}/>: null}
+          <div className={styles.buttonGroup}>
+            {downloadData? <ExportGltf downloadModel={downloadData} currentAnim={movement}/>:null}
+            <Drop parentCallback={callbackFunction}/>
           </div>
-          {downloadData? <ExportGltf downloadModel={downloadData} currentAnim={movement}/>:null}
+          <AnimationList runFunc={updateToNewAnim}/>
         </div>
     );
   }    

@@ -1,7 +1,30 @@
-.canvasArea{
-
- 
-    display: flex;
-  align-items: center;
-  justify-content: center;
+.wholeCanvas{
+  padding-top: 2em;
 }
+.canvasArea{
+  display: flex;
+  /* justify-content: center;
+  align-content: center; */
+}
+.controls{
+  width: 50%;
+  
+  background-color: red;
+}
+.controls button{
+  width: 30%;
+  padding: 1em;
+  color: #F38A8A;
+  float: left;
+  white-space: normal;
+  word-wrap: break-word;
+}
+.buttonGroup{
+  display: block;
+  width: 100%;
+}
+.buttonGroup button{
+  float: right;
+  margin-right: 5em;
+  padding: 1em;
+} 

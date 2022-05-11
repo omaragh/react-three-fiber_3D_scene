@@ -1,0 +1,11 @@
+.Wrapper{
+    display: flex;
+    width: fit-content;
+}
+
+.CustomAnim{
+    padding: 1em;
+    
+    flex-direction: row;
+    flex-wrap: wrap;
+}
