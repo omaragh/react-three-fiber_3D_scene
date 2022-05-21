@@ -1,6 +1,6 @@
 import ReactFileReader from "react-file-reader";
 import React from "react";
-import styles from "./Dropfile.module.css"
+
 
 class Drop extends React.Component {
   sendData = (files) => {
@@ -11,7 +11,7 @@ class Drop extends React.Component {
     return (
       <div>
         <>
-          <ReactFileReader fileTypes={[".glb", ".gltf", ".fbx", ".png", ".jpeg"]} base64={true} handleFiles={this.sendData}>
+          <ReactFileReader fileTypes={[".glb", ".gltf"]} base64={true} handleFiles={this.sendData}>
               <button>Open file</button>
           </ReactFileReader>
         </>

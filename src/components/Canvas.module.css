@@ -8,8 +8,6 @@
 }
 .controls{
   width: 50%;
-  
-  background-color: red;
 }
 .controls button{
   width: 30%;
@@ -25,6 +23,6 @@
 }
 .buttonGroup button{
   float: right;
-  margin-right: 5em;
+  margin-right: 1em;
   padding: 1em;
 } 

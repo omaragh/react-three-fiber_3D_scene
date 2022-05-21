@@ -14,9 +14,9 @@ function loadSelectedAnim(index){
 function CreateAnimButtons(){
     let diffButtons = []
     for(let i = 0; i < json.length; i++){
-        diffButtons.push(<button className={styles.CustomAnim} onClick={() => loadSelectedAnim(i)}>{json[i].name}</button>)
+        diffButtons.push(<button className={styles.CustomAnim} onClick={() => loadSelectedAnim(i)} key={i}>{json[i].name}</button>)
     }
-    return <div>{diffButtons}</div>
+    return <div >{diffButtons}</div>
 }
     return(
         <div className={styles.Wrapper}>

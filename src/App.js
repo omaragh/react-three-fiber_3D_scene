@@ -4,30 +4,34 @@ import styles from "./App.module.css";
 import Nav from "./components/HeaderNav";
 import SearchBar from "./components/SearchBar";
 import CanvasField from "./components/Canvas";
-// import AnimationList from "./components/LoadAnimations";
+import Hub from "./components/CommunityHub";
+
 class App extends React.Component { 
-  // state = {
-  //   newAnim: null
-  // }
-  // updateCurrentAnim = (animData)=>{
-  //   this.setState({newAnim: animData})
-  // }
+ state = {currentPage: true}
+
+ changePage = ()=>{
+   if(this.state.currentPage){
+     console.log("klik")
+    this.setState({currentPage: false})
+   }else{
+    console.log("kliked")
+    this.setState({currentPage: true})
+   }
+   
+ }
   render() {
     return (
       <div>
         <div className={styles.Nav}>
-          <Nav></Nav>
+          <Nav page={this.changePage} currentShow={this.state.currentPage}></Nav>
         </div>
-        <div className={styles.Content}>
+        
+        {this.state.currentPage?<div className={styles.Content}>
         <SearchBar></SearchBar>
           <div>
             <CanvasField />
           </div>
-          <div>
-            {/* <AnimationList runFunc={this.updateCurrentAnim}/> */}
-          </div>
-          
-        </div>
+        </div>:<Hub/>}
       </div>
     );
   }    

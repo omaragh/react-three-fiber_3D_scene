@@ -5,9 +5,9 @@ function ExportGltf(props){
   function Download(){
     const options = {
         binary: true,
-        maxTextureSize: 4096,
-        animations: [props.downloadModel.animations[props.currentAnim]],
-        includeCustomExtensions: true
+        maxTextureSize: Infinity,
+        animations: props.allAnim
+        // includeCustomExtensions: true
       }
       
     const exporter = new GLTFExporter();
