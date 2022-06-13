@@ -1,28 +1,151 @@
-.wholeCanvas{
-  padding-top: 2em;
-}
-.canvasArea{
-  display: flex;
-  /* justify-content: center;
-  align-content: center; */
-}
-.controls{
-  width: 50%;
-}
-.controls button{
-  width: 30%;
-  padding: 1em;
+h3 {
   color: #F38A8A;
-  float: left;
+}
+
+.controls {
+  position: absolute;
+  margin-right: 0;
+  overflow-y: scroll;
+  height: 500px;
+  max-width: 10%;
+  padding: 1em;
+  border-radius: 10px;
+  margin: 2em;
+  background: rgba(32, 32, 32, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 100;
+}
+
+.controls button {
+  filter: grayscale(0);
+  width: 100%;
+  color: white;
+  text-shadow: 0 0 black;
   white-space: normal;
   word-wrap: break-word;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.buttonGroup{
-  display: block;
-  width: 100%;
-}
-.buttonGroup button{
-  float: right;
-  margin-right: 1em;
+
+.currentAnimations {
+  position: absolute;
+  overflow-y: scroll;
+  top: 10%;
+  left: 85%;
+  height: 500px;
+  max-width: 10%;
   padding: 1em;
-} 
+  border-radius: 10px;
+  margin: 2em;
+  background: rgba(32, 32, 32, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 100;
+}
+
+.currentAnimations button {
+  filter: grayscale(0);
+  width: 100%;
+  color: white;
+  text-shadow: 0 0 black;
+  white-space: normal;
+  word-wrap: break-word;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buttonGroup {
+  
+  left: 50%;
+  top: 15%;
+  z-index: 100;
+  transform: translateX(-50%);
+  height: 48px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 10px;
+
+}
+
+.buttonGroup button {
+  background-color: transparent;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.buttonGroup button:hover {
+  color:#69CCC1;
+  background-color: gray;
+  transform: scale(1.2);
+}
+
+.slides {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  bottom: 0.1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(32, 32, 32, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 3;
+}
+
+.slides p {
+  text-align: center;
+  color:#F38A8A;
+}
+
+.slides * {
+  color: #69CCC1;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+  background: rgba(32, 32, 32, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+*::-webkit-scrollbar-thumb {
+  box-shadow: -5px -5px 5px #69CCC1 inset,
+    5px 5px 5px #4a4a4a inset;
+  border-radius: 50px;
+
+}

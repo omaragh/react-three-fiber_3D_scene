@@ -1,11 +1,25 @@
 import React, {useEffect, useState} from "react";
 import {listAll, ref, getDownloadURL} from 'firebase/storage'
 import { storage } from "../firebase";
-
+import LoadAllCanvas from "./FetchModel";
+import styles from './CommunityHub.module.css'
+import {BsDownload} from 'react-icons/bs'
+import {AiOutlineCopy} from 'react-icons/ai'
+function CopiedUrl(props){
+    return(
+        <div className={styles.cHub}>
+            <LoadAllCanvas link={props.downloadLink}/>
+            <div className={styles.icons}>
+                <AiOutlineCopy onClick={()=>{navigator.clipboard.writeText(props.downloadLink)}}/>
+                <BsDownload onClick={()=> window.open(props.downloadLink,"_blank")}/>
+            </div>
+            {/* <button >Download</button> */}
+        </div>
+    )
+}
 function Hub(){
-    const [fileList, setFileList] = useState([])
-
-    const fileListRef = ref(storage, "animatedModels/")
+    const [fileList, setFileList] = useState([]);
+    const fileListRef = ref(storage, "animatedModels/");
     useEffect(()=>{
         listAll(fileListRef).then((response)=>{
             response.items.forEach((item)=>{
@@ -13,19 +27,20 @@ function Hub(){
                     setFileList((prev)=>[...prev, url]);
                 })
             })
-            console.log(fileList)
         })
     }, [])
     
     return(
-        <div>
+        <div className={styles.hub}>
             <h3>Community submissions</h3>
             <p>Select one of the animated models</p>
-            {fileList.map((url)=>{
-                return <p>{url}</p>
-            })}
+            
+            <section className={styles.loadedInfo}>
+                {fileList.map((url)=>{
+                    return <CopiedUrl downloadLink={url}/>
+                })}
+            </section>
         </div>
-        
     )   
 }
 export default Hub;

@@ -2,36 +2,48 @@ import React from "react";
 
 import styles from "./App.module.css";
 import Nav from "./components/HeaderNav";
-import SearchBar from "./components/SearchBar";
 import CanvasField from "./components/Canvas";
 import Hub from "./components/CommunityHub";
+import LandingPageInfo from "./components/LandingPage";
 
-class App extends React.Component { 
- state = {currentPage: true}
+class RenderPage extends React.Component{
+  state = {currentPage: true}
 
  changePage = ()=>{
    if(this.state.currentPage){
-     console.log("klik")
     this.setState({currentPage: false})
    }else{
-    console.log("kliked")
     this.setState({currentPage: true})
    }
-   
  }
-  render() {
-    return (
-      <div>
-        <div className={styles.Nav}>
-          <Nav page={this.changePage} currentShow={this.state.currentPage}></Nav>
+ render(){
+  return (
+    <>
+    <div className={styles.Nav}>
+          <Nav page={this.changePage} currentShow={this.state.currentPage} home={this.props.showHome}></Nav>
         </div>
-        
-        {this.state.currentPage?<div className={styles.Content}>
-        <SearchBar></SearchBar>
+        {this.state.currentPage?<div className={styles.Content} >
           <div>
             <CanvasField />
           </div>
         </div>:<Hub/>}
+    </>
+    )
+  }
+}
+class App extends React.Component { 
+  state = {homePage: true}
+  changeHome = ()=>{
+    if(this.state.homePage){
+     this.setState({homePage: false})
+    }else{
+      this.setState({homePage: true})
+    }
+  }
+  render() {
+    return (
+      <div>
+        {this.state.homePage?<LandingPageInfo page={this.changeHome} currentShow={this.state.homePage}/>: <RenderPage showHome={this.changeHome}/>}
       </div>
     );
   }    

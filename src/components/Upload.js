@@ -4,7 +4,8 @@ import {v4} from 'uuid';
 import {GLTFExporter} from 'three/examples/jsm/exporters/GLTFExporter.js';
 import * as React from 'react';
 import Snackbar from '@mui/material/Snackbar';
-import styles from './Upload.module.css'
+import {FaCloudUploadAlt} from 'react-icons/fa'
+import Tooltip from '@mui/material/Tooltip';
 
 export default function Upload(props){
     
@@ -46,7 +47,7 @@ export default function Upload(props){
     }
     return(
         <div>
-            <button onClick={uploadFile}>Upload to hub</button>
+            <Tooltip title="Upload"><button onClick={uploadFile}><FaCloudUploadAlt size={"20px"}/></button></Tooltip>
             <Snackbar autoHideDuration={4000}
                 anchorOrigin={{
                     vertical: 'bottom',
@@ -55,7 +56,7 @@ export default function Upload(props){
                 open={open}
                 onClose={handleClose}
                 message="Your model has been uploaded"
-                key={vertical + horizontal} contentprops={{className: styles.popUp}}
+                key={vertical + horizontal}
             />
         </div>
     )

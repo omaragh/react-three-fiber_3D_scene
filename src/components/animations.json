@@ -1,23 +1,43 @@
 [
     {
-        "name": "jump down",
+        "name": "Jump down",
         "url": "./anims/jumpDown.glb"
     },
     {
-        "name": "pray",
+        "name": "Praying",
         "url": "./anims/pray Anim.glb"
     },
     {
-        "name": "run",
+        "name": "Running",
         "url": "./anims/running.glb"
     },
     {
-        "name": "sit",
+        "name": "Sitting",
         "url": "./anims/sitting.glb"
     },
     {
-        "name": "torch",
+        "name": "Torch",
         "url": "./anims/torch.glb"
+    },
+    {
+        "name": "Walking",
+        "url": "./anims/Block.glb"
+    },
+    {
+        "name": "Block",
+        "url": "./anims/Block.glb"
+    },
+    {
+        "name": "Block",
+        "url": "./anims/Block.glb"
+    },
+    {
+        "name": "Block",
+        "url": "./anims/Block.glb"
+    },
+    {
+        "name": "Block",
+        "url": "./anims/Block.glb"
     },
     {
         "name": "Block",

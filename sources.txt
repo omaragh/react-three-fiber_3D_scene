@@ -17,3 +17,10 @@ https://threejs.org/docs/?q=export#examples/en/exporters/GLTFExporter
 https://codesandbox.io/s/reflectorplanes-and-bloom-forked-wmy76l?file=/src/App.js
 https://threejs.org/examples/#misc_exporter_gltf
 https://stackoverflow.com/questions/69035148/exporting-an-animated-scene-with-gltfexporter-in-threejs
+
+https://localcoder.org/how-to-extract-and-play-animation-in-react-three-fiber
+https://stackoverflow.com/questions/24841808/three-js-how-to-check-when-animation-is-end
+https://discourse.threejs.org/t/exporting-model-with-animations/6792
+https://discourse.threejs.org/t/how-to-play-animations-consecutively/14965
+https://www.freepik.com/free-vector/3d-shapes-sky-tones-background_7261117.htm#query=3d%20shapes&position=17&from_view=keyword
+https://unsplash.com/photos/QW3OUweGvlA

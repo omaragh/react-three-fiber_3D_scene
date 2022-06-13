@@ -1,7 +1,8 @@
 import {GLTFExporter} from 'three/examples/jsm/exporters/GLTFExporter.js';
+import {ImFolderDownload} from "react-icons/im";
+import Tooltip from '@mui/material/Tooltip';
 
 function ExportGltf(props){
-
   function Download(){
     const options = {
         binary: true,
@@ -30,7 +31,7 @@ function ExportGltf(props){
    }
     return(
         <>
-            <button id="downl" onClick={Download}>Download model</button>
+            <Tooltip title="Download model"><button id="downl" onClick={Download}><ImFolderDownload size={"20px"}/></button></Tooltip>
         </>
     )
 }
