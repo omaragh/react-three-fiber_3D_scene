@@ -8,7 +8,8 @@ import {AiOutlineCopy} from 'react-icons/ai'
 function CopiedUrl(props){
     return(
         <div className={styles.cHub}>
-            <LoadAllCanvas link={props.downloadLink}/>
+            {/* <LoadAllCanvas link={props.downloadLink}/> */}
+            <img src="tempImg.png"></img>
             <div className={styles.icons}>
                 <AiOutlineCopy onClick={()=>{navigator.clipboard.writeText(props.downloadLink)}}/>
                 <BsDownload onClick={()=> window.open(props.downloadLink,"_blank")}/>

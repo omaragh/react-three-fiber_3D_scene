@@ -1,15 +1,7 @@
 [
     {
         "name": "Jump down",
-        "url": "./anims/jumpDown.glb"
-    },
-    {
-        "name": "Praying",
-        "url": "./anims/pray Anim.glb"
-    },
-    {
-        "name": "Running",
-        "url": "./anims/running.glb"
+        "url": "./anims/Jump Down.glb"
     },
     {
         "name": "Sitting",
@@ -20,27 +12,23 @@
         "url": "./anims/torch.glb"
     },
     {
-        "name": "Walking",
-        "url": "./anims/Block.glb"
+        "name": "Waving",
+        "url": "./anims/Waving.glb"
     },
     {
         "name": "Block",
         "url": "./anims/Block.glb"
     },
     {
-        "name": "Block",
-        "url": "./anims/Block.glb"
+        "name": "Hip Hop Dancing",
+        "url": "./anims/Hip Hop Dancing.glb"
     },
     {
-        "name": "Block",
-        "url": "./anims/Block.glb"
+        "name": "Strut walking",
+        "url": "./anims/Strut walking.glb"
     },
     {
-        "name": "Block",
-        "url": "./anims/Block.glb"
-    },
-    {
-        "name": "Block",
-        "url": "./anims/Block.glb"
+        "name": "Zombie standup",
+        "url": "./anims/Zombie standup.glb"
     }
 ]

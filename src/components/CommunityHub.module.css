@@ -12,7 +12,11 @@
     color: #69CCC1;
     margin: 30px 0 0 2%;
 }
+.cHub img{
+    max-width: 300px;
+}
 .icons{
     float: right;
     font-size: large;
+    position: absolute;
 }

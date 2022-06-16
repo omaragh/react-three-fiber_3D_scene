@@ -12,6 +12,9 @@ import Upload from "./Upload";
 import { CircularProgress } from "@mui/material";
 import { CanvasCapture} from 'canvas-capture';
 import HelpPanel from "./HelpPanel";
+import MaterialToolTip from '@material-ui/core/Tooltip'
+import { withStyles } from '@mui/styles';
+
 
 function CanvasField() { 
   const [url, setUrl] = useState("./botTest.glb")
@@ -22,7 +25,11 @@ function CanvasField() {
   const [sliderNum, setSliderNum] = useState(1);
   const [sliderNum2, setSliderNum2] = useState(1);
   
-
+  const LightTooltip = withStyles(theme =>({
+    tooltip: {
+      fontSize: 15,
+    },
+  }))(MaterialToolTip);
   function callbackFunction(childData){
     setUrl(childData);
     setMovement(0);
@@ -111,9 +118,7 @@ function CanvasField() {
  
   function Loader(){
     const {progress} = useProgress();
-
     return <Html center><CircularProgress value={progress}></CircularProgress></Html>
-    //return <Html center style={{color: "red"}}> {progress} % loaded</Html>
   }
 //   if(document.getElementById('canvasModel')){
 //     CanvasCapture.init(
@@ -134,13 +139,16 @@ function CanvasField() {
 //       }
 //       loop()
 // }
+
     return ( 
         <div className={styles.wholeCanvas}>
           <div className={styles.container}>
-            <div className={styles.controls}>
-            <h3>Available animations</h3>
-              <AnimationList runFunc={updateToNewAnim}/>
-            </div>
+            <LightTooltip title="Click on an animation to add it to your model" placement="right" arrow>
+              <div className={styles.controls}>
+              <h3>Animation list</h3>
+                <AnimationList runFunc={updateToNewAnim}/>
+              </div>
+            </LightTooltip>
             <div className={styles.canvasArea} id="canvasModel">
               <Canvas id="canvasModel" style={{height:"90vh", width:"100vw"}} dpr={[0, 1]} camera={{ position: [0, 0, 5] }}>
               <Sky distance={450000} sunPosition={[5, 1, 8]} inclination={0} azimuth={0.25} />
@@ -156,10 +164,11 @@ function CanvasField() {
                 </Suspense>
               </Canvas>
             </div>
+            <LightTooltip title="Click on an animation to preview it" placement="left" arrow>
             <div className={styles.currentAnimations}>
-              <h3>Current Animations</h3>
+              <h3>Attached Animations</h3>
               {url? <ShowAllButtons className={styles.knopje} sendInfo={allAnimData} updateAnim={updateAction}/>: null}
-            </div>
+            </div></LightTooltip>
           </div>
           <div className={styles.buttonGroup}>
             <Drop parentCallback={callbackFunction}/>

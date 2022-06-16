@@ -1,7 +1,15 @@
 import ReactFileReader from "react-file-reader";
 import React from "react";
 import {ImFolderUpload} from"react-icons/im";
-import Tooltip from '@mui/material/Tooltip';
+import MaterialToolTip from '@material-ui/core/Tooltip'
+import { withStyles } from '@mui/styles';
+
+const LightTooltip = withStyles(theme =>({
+    tooltip: {
+      fontSize: 15,
+    },
+  }))(MaterialToolTip);
+
 class Drop extends React.Component {
   sendData = (files) => {
     console.log(files);
@@ -12,7 +20,7 @@ class Drop extends React.Component {
       <div>
         <>
           <ReactFileReader fileTypes={[".glb", ".gltf"]} base64={true} handleFiles={this.sendData}>
-              <Tooltip title="Load local model"><button><ImFolderUpload size={"20px"}/></button></Tooltip>
+              <LightTooltip title="Load local model"><button><ImFolderUpload size={"20px"}/></button></LightTooltip>
           </ReactFileReader>
         </>
       </div>

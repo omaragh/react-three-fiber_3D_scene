@@ -5,7 +5,14 @@ import {GLTFExporter} from 'three/examples/jsm/exporters/GLTFExporter.js';
 import * as React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import {FaCloudUploadAlt} from 'react-icons/fa'
-import Tooltip from '@mui/material/Tooltip';
+import MaterialToolTip from '@material-ui/core/Tooltip'
+import { withStyles } from '@mui/styles';
+
+const LightTooltip = withStyles(theme =>({
+    tooltip: {
+      fontSize: 15,
+    },
+  }))(MaterialToolTip);
 
 export default function Upload(props){
     
@@ -47,7 +54,7 @@ export default function Upload(props){
     }
     return(
         <div>
-            <Tooltip title="Upload"><button onClick={uploadFile}><FaCloudUploadAlt size={"20px"}/></button></Tooltip>
+            <LightTooltip title="Upload"><button onClick={uploadFile}><FaCloudUploadAlt size={"20px"}/></button></LightTooltip>
             <Snackbar autoHideDuration={4000}
                 anchorOrigin={{
                     vertical: 'bottom',

@@ -3,6 +3,7 @@ import styles from "./ActionButtons.module.css"
 
 function ShowAllButtons(props){
   let arrButtons = [];
+
   if(props.sendInfo.length !== 0){
     for (let i = 0; i < props.sendInfo.length; i++) { 
       props.sendInfo[i].name = props.sendInfo[i].name.replace("_", " ");

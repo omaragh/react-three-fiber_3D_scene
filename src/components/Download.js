@@ -1,6 +1,13 @@
 import {GLTFExporter} from 'three/examples/jsm/exporters/GLTFExporter.js';
 import {ImFolderDownload} from "react-icons/im";
-import Tooltip from '@mui/material/Tooltip';
+import MaterialToolTip from '@material-ui/core/Tooltip'
+import { withStyles } from '@mui/styles';
+
+const LightTooltip = withStyles(theme =>({
+    tooltip: {
+      fontSize: 15,
+    },
+  }))(MaterialToolTip);
 
 function ExportGltf(props){
   function Download(){
@@ -11,7 +18,7 @@ function ExportGltf(props){
         // includeCustomExtensions: true
       }
       
-    const exporter = new GLTFExporter();
+    const exporter = new GLTFExporter()
     exporter.parse(
         props.downloadModel.scene,
         function(result){
@@ -31,7 +38,7 @@ function ExportGltf(props){
    }
     return(
         <>
-            <Tooltip title="Download model"><button id="downl" onClick={Download}><ImFolderDownload size={"20px"}/></button></Tooltip>
+            <LightTooltip title="Download model"><button id="downl" onClick={Download}><ImFolderDownload size={"20px"}/></button></LightTooltip>
         </>
     )
 }
