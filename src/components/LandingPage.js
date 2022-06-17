@@ -48,7 +48,7 @@ return(
             <div className={styles.interactiveVideo}>
                 <div className={styles.interactiveVideoDetails}>
                     <h2>Showreel</h2>
-                    <iframe src="https://www.youtube.com/embed/W9nZ6u15yis" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/G2-7UHapub8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
             

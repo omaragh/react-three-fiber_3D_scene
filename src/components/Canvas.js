@@ -156,7 +156,6 @@ function CanvasField() {
             </LightTooltip>
             <div className={styles.canvasArea} id="canvasModel">
               <Canvas id="canvasModel" style={{height:"90vh", width:"100vw"}} dpr={[0, 1]} camera={{ position: [0, 0, 5] }}>
-              {/* <Sky distance={450000} sunPosition={[5, 1, 8]} inclination={0} azimuth={0.25} /> */}
                 <Suspense fallback={<Loader/>}>
                   <Center position={[5, 2, 5]}>
                     <KeyLight brightness={5.6} color={"#ffc9f9"}/>
