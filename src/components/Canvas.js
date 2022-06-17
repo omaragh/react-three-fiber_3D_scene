@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls, useTexture, Reflector, Html, useProgress, Sky } from "@react-three/drei";
+import { Center, OrbitControls, useTexture, Reflector, Html, useProgress, Sky,Environment } from "@react-three/drei";
 import Model from "./Model";
 import Drop from "./Dropfile";
 import styles from "./Canvas.module.css";
@@ -14,7 +14,7 @@ import { CanvasCapture} from 'canvas-capture';
 import HelpPanel from "./HelpPanel";
 import MaterialToolTip from '@material-ui/core/Tooltip'
 import { withStyles } from '@mui/styles';
-
+import DroppedEnv from "./Dropdown";
 
 function CanvasField() { 
   const [url, setUrl] = useState("./botTest.glb")
@@ -24,12 +24,17 @@ function CanvasField() {
   const [selectedAnim, setAnim] = useState(null);
   const [sliderNum, setSliderNum] = useState(1);
   const [sliderNum2, setSliderNum2] = useState(1);
-  
+  const [currentEnv, setEnv] = useState("city");
+
   const LightTooltip = withStyles(theme =>({
     tooltip: {
       fontSize: 15,
     },
   }))(MaterialToolTip);
+
+  function changeCurrentEnv(newEnv){
+    setEnv(newEnv)
+  }
   function callbackFunction(childData){
     setUrl(childData);
     setMovement(0);
@@ -151,12 +156,13 @@ function CanvasField() {
             </LightTooltip>
             <div className={styles.canvasArea} id="canvasModel">
               <Canvas id="canvasModel" style={{height:"90vh", width:"100vw"}} dpr={[0, 1]} camera={{ position: [0, 0, 5] }}>
-              <Sky distance={450000} sunPosition={[5, 1, 8]} inclination={0} azimuth={0.25} />
+              {/* <Sky distance={450000} sunPosition={[5, 1, 8]} inclination={0} azimuth={0.25} /> */}
                 <Suspense fallback={<Loader/>}>
                   <Center position={[5, 2, 5]}>
                     <KeyLight brightness={5.6} color={"#ffc9f9"}/>
                     <FillLight brightness={2.6} color={"#bdefff"}/>
                     <RimLight brightness={54} color={"#fff"} />
+                    {currentEnv === "disable"? <Sky distance={450000} sunPosition={[5, 1, 8]} inclination={0} azimuth={0.25} />: <Environment preset={currentEnv} background />}
                     {url ? <Model value={url} action={movement} chosenAnim={selectedAnim} sliderVal1={sliderNum} sliderVal2={sliderNum2} handleData={handleData}/>: null} 
                     <Ground mirror={1} blur={[500, 100]} mixBlur={12} mixStrength={1.5} rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={0} />
                   </Center>
@@ -185,6 +191,10 @@ function CanvasField() {
               <p >Adjust the weight</p><PoseSlider id="secondSlider" sliderData2={sliderValueTwee}/>
             </div>
           </div>
+          <div className={styles.dropMenu}>
+            <DroppedEnv changeEnv={changeCurrentEnv} env={currentEnv}/>
+          </div>
+          
         </div>
     );
   }    
