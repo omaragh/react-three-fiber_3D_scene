@@ -7,8 +7,7 @@ button{
     text-align: center;
     cursor: pointer;
     transition: .2s ease-in-out;
-    box-shadow:  5px 5px 10px #4a4a4a,
-    -5px -5px 10px #646464;
+
   }
    button:hover {
     box-shadow: inset 5px 5px 10px #4a4a4a,

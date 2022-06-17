@@ -1,14 +1,10 @@
 .anims{
-    padding: 1em;
-    background-size: cover;
-    text-transform: uppercase;
-    font-size: small;
-    margin: 0.3em;
+    padding: 0.5em;
     margin-bottom: 0.5em;
 }
 
 .anims:hover{
-    font-size: 1em;
-    transform: scale(0.99);
-    /* letter-spacing: 1px; */
+    color:black;
+   text-transform: uppercase;
+    background: #69CCC1;
 }

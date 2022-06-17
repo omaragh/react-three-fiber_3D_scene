@@ -1,15 +1,14 @@
 .CustomAnim{
-    padding: 1em;
-    background-size: cover;
-    text-transform: uppercase;
+    padding: 0.5em;
     font-size: small;
-    margin: 0.3em;
     margin-bottom: 0.5em;
+    transition: 100ms linear;
 }
 
 .CustomAnim:hover{
-    font-size: 1em;
-    transform: scale(0.99);
+   color:black;
+   text-transform: uppercase;
+    background: #69CCC1;
     /* letter-spacing: 1px; */
 }
 

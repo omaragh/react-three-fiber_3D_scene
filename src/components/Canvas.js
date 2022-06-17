@@ -166,7 +166,7 @@ function CanvasField() {
             </div>
             <LightTooltip title="Click on an animation to preview it" placement="left" arrow>
             <div className={styles.currentAnimations}>
-              <h3>Attached Animations</h3>
+              <h3>Current Animations</h3>
               {url? <ShowAllButtons className={styles.knopje} sendInfo={allAnimData} updateAnim={updateAction}/>: null}
             </div></LightTooltip>
           </div>
@@ -178,7 +178,7 @@ function CanvasField() {
           </div>
           <div className={styles.slides}>
             <div>
-              <p >Adjust the speed</p><PoseSlider id="firstSlider" sliderData={sliderValue}/>
+              <p>Adjust the speed</p><PoseSlider id="firstSlider" sliderData={sliderValue}/>
             </div>
             
             <div>

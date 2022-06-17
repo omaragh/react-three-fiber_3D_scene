@@ -11,8 +11,8 @@ function CopiedUrl(props){
             {/* <LoadAllCanvas link={props.downloadLink}/> */}
             <img src="tempImg.png"></img>
             <div className={styles.icons}>
-                <AiOutlineCopy onClick={()=>{navigator.clipboard.writeText(props.downloadLink)}}/>
-                <BsDownload onClick={()=> window.open(props.downloadLink,"_blank")}/>
+                <button><AiOutlineCopy size={"30px"} onClick={()=>{navigator.clipboard.writeText(props.downloadLink)}}/></button>
+                <button><BsDownload size={"30px"} onClick={()=> window.open(props.downloadLink,"_blank")}/></button>
             </div>
             {/* <button >Download</button> */}
         </div>
@@ -33,8 +33,8 @@ function Hub(){
     
     return(
         <div className={styles.hub}>
-            <h3>Community submissions</h3>
-            <p>Select one of the animated models</p>
+            <h2>Community submissions</h2>
+            <p>These are the community made animations, free for use by simply clicking the download icon</p>
             
             <section className={styles.loadedInfo}>
                 {fileList.map((url)=>{

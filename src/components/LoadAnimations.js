@@ -14,14 +14,13 @@ function loadSelectedAnim(index){
 function CreateAnimButtons(){
     let diffButtons = []
     for(let i = 0; i < json.length; i++){
-        diffButtons.push(<button className={styles.CustomAnim} onClick={() => loadSelectedAnim(i)} key={i}><div className={styles.containerButtonName}>{json[i].name}</div></button>)//<img src={json[i].img} alt={json[i].name}></img>
-    }//style={{backgroundImage: `url(${json[i].img})`}} 
+        diffButtons.push(<button className={styles.CustomAnim} onClick={() => loadSelectedAnim(i)} key={i}><div className={styles.containerButtonName}><p>{json[i].name}</p></div></button>)
+    }
     return <div >{diffButtons}</div>
 }
     return(
         <div>
             <CreateAnimButtons/>
-            {/* <button className={styles.CustomAnim} onClick={loadSelectedAnim}>animate</button> */}
         </div>
     )
 }

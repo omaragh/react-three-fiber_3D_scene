@@ -1,26 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@font-face {
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+/* @font-face {
   font-family: SourceSansPro;
   src: url("./fonts/SourceSansPro-SemiBold.ttf");
-}
+} */
 @font-face {
   font-family: SinkinSans;
   src: url("./fonts/SinkinSans-700Bold.otf");
+}
+@font-face {
+  font-family: SmoothCircular;
+  src: url("./fonts/Smooth Circulars.otf");
 }
 html, body {
   margin: 0;
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
-  
 }
 
+h1{
+  font-family: SmoothCircular, sans-serif;
+}
 h2{
-  font-family: 'roboto', sans-serif;
+  font-family: SinkinSans, sans-serif;
+  font-weight: 700;
+}
+h3{
+  font-family: SinkinSans, sans-serif;
+  font-weight: 600;
 }
 p{
-  font-family: SourceSansPro;
-  font-size: larger;
+  font-family: "SourceSansPro", sans-serif;
+  font-weight: 400;
 }
 body {
   
