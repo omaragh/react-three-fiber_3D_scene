@@ -10,6 +10,7 @@ const LightTooltip = withStyles(theme =>({
     },
   }))(MaterialToolTip);
 
+/* It's a button that when clicked, opens a file explorer and returns the file as a base64 string. */
 class Drop extends React.Component {
   sendData = (files) => {
     console.log(files);

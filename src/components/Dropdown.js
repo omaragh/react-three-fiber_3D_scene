@@ -13,6 +13,12 @@ const LightTooltip = withStyles(theme =>({
     },
   }))(MaterialToolTip);
 
+/**
+ * DroppedEnv is a function that takes in props and returns a dropdown menu that changes the enviroment
+ * of the scene.
+ * @param props - {
+ * @returns The return is a function that takes in props and returns a component.
+ */
 export default function DroppedEnv(props){
   const [currentEnv, setEnv] = useState(props.env);
 

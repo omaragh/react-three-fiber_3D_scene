@@ -32,9 +32,19 @@ function CanvasField() {
     },
   }))(MaterialToolTip);
 
+  /**
+   * It takes a string as an argument, and then sets the value of the variable "env" to that string.
+   * @param newEnv - The new environment to change to.
+   */
   function changeCurrentEnv(newEnv){
     setEnv(newEnv)
   }
+
+  /**
+   * It takes in a childData object, and then sets the state of the url, movement, allAnimData,
+   * download, anim, and sliderNum.
+   * @param childData - the data that is passed from the parent component
+   */
   function callbackFunction(childData){
     setUrl(childData);
     setMovement(0);
@@ -44,10 +54,20 @@ function CanvasField() {
     setSliderNum(1)
   }; 
 
+  /**
+   * The updateAction function takes in a data object, and then calls the setMovement function with the
+   * data object as an argument.
+   * @param data - The data object that is sent from the server.
+   */
   function updateAction(data){
     setMovement(data);
   }
 
+  /**
+   * It takes the gltf data, sets the download link, and if there are no animations in the allAnimData
+   * array, it sets the allAnimData array to the gltf animations.
+   * @param gltf - The gltf object that is returned from the loader.
+   */
   function handleData (gltf){
     setDownload(gltf)
     if(allAnimData.length < 1){
@@ -55,6 +75,11 @@ function CanvasField() {
     }
   }
 
+  /**
+   * If the array allAnimData includes the data from the function parameter, then do nothing. If it
+   * doesn't, then add the data to the array and set the state of the variable anim to the data.
+   * @param animData - the data that is being passed from the child component
+   */
   const updateToNewAnim = (animData)=>{
     let arr = []
     if(allAnimData.includes(animData)){
@@ -64,13 +89,27 @@ function CanvasField() {
       setAnim(animData)}
   }
 
+  /**
+   * It sets the sliderNum variable to the value of the slider.
+   * @param value - The value of the slider
+   */
   function sliderValue(value){
     setSliderNum(value)
   }
+  /**
+   * It sets the value of the slider to the value of the slider.
+   * @param value - the value of the slider
+   */
   function sliderValueTwee(value){
     setSliderNum2(value)
   }
 
+ /**
+  * This function creates a Reflector component that uses a texture for the floor and a texture for the
+  * normal map.
+  * @param props - The props passed to the component.
+  * @returns A React component that renders a Reflector with a material that uses the textures.
+  */
   function Ground(props) {
     const [floor, normal] = useTexture(['/SurfaceImperfections003_1K_var1.jpg', '/SurfaceImperfections003_1K_Normal.jpg'])
     return (
@@ -79,6 +118,12 @@ function CanvasField() {
       </Reflector>
     )
   }
+  /**
+   * This function returns a rectangle area light with a width, a height , a color of the
+   * color passed in, an intensity of the brightness passed in, a position, a lookAt,
+   * a penumbra, and a castShadow.
+   * @returns A rectangle light.
+   */
   function KeyLight({ brightness, color }) {
     return (
       <rectAreaLight
@@ -93,6 +138,10 @@ function CanvasField() {
       />
     );
   }
+  /**
+   * The FillLight function is a React component that returns a rectangle area light
+   * @returns A rectangle light.
+   */
   function FillLight({ brightness, color }) {
     return (
       <rectAreaLight
@@ -107,6 +156,11 @@ function CanvasField() {
       />
     );
   }
+  /**
+   * The function takes in two props, brightness and color, and returns a rectangle area light with the
+   * given brightness and color
+   * @returns A rectangle area light.
+   */
   function RimLight({ brightness, color }) {
     return (
       <rectAreaLight
@@ -121,6 +175,10 @@ function CanvasField() {
     );
   }
  
+  /**
+   * This is a React hook that returns the progress value
+   * @returns A function that returns a component.
+   */
   function Loader(){
     const {progress} = useProgress();
     return <Html center><CircularProgress value={progress}></CircularProgress></Html>

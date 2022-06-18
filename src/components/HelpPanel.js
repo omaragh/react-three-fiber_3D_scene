@@ -54,6 +54,10 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     onClose: PropTypes.func.isRequired,
   };
 
+/**
+ * The function opens a dialog box when the user clicks on the help button.
+ * @returns a div with a button and a dialog.
+ */
 export default function CustomizedDialogs() {
     const [open, setOpen] = React.useState(false);
   

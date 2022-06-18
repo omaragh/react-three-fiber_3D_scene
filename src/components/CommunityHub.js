@@ -5,6 +5,12 @@ import LoadAllCanvas from "./FetchModel";
 import styles from './CommunityHub.module.css'
 import {BsDownload} from 'react-icons/bs'
 import {AiOutlineCopy} from 'react-icons/ai'
+
+/**
+ * It's a function that returns buttons which provide a download link
+ * @param props - {
+ * @returns A div with an image and two buttons.
+ */
 function CopiedUrl(props){
     return(
         <div className={styles.cHub}>
@@ -14,10 +20,15 @@ function CopiedUrl(props){
                 <button><AiOutlineCopy size={"30px"} onClick={()=>{navigator.clipboard.writeText(props.downloadLink)}}/></button>
                 <button><BsDownload size={"30px"} onClick={()=> window.open(props.downloadLink,"_blank")}/></button>
             </div>
-            {/* <button >Download</button> */}
         </div>
     )
 }
+
+/**
+ * It gets the download URL of every file in a folder in Firebase Storage, and then displays them in a
+ * list
+ * @returns The fileList is being returned as an array of strings.
+ */
 function Hub(){
     const [fileList, setFileList] = useState([]);
     const fileListRef = ref(storage, "animatedModels/");
@@ -30,7 +41,6 @@ function Hub(){
             })
         })
     }, [])
-    
     return(
         <div className={styles.hub}>
             <h2>Community submissions</h2>

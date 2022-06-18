@@ -1,6 +1,12 @@
 import { Slider } from "@mui/material";
 import { useState } from "react";
 
+
+/**
+ * Creates the sliders to be able to change certain values of the model
+ * @param props 
+ * @returns 
+ */
 function PoseSlider(props){
     const [value, setValue] = useState(1)
 

@@ -4,6 +4,12 @@ import {BsArrowRightCircle} from "react-icons/bs";
 import {GrInstagram, GrLinkedin, GrGithub} from "react-icons/gr";
 import Hover from "react-3d-hover";
 
+
+/**
+ * Generates the home page.
+ * @param props 
+ * @returns the html
+ */
 export default function LandingPageInfo(props){
 
 return(

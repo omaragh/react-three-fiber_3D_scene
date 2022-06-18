@@ -1,8 +1,15 @@
-import React, { useEffect, useRef } from 'react'
-import * as THREE from "three"
+import React, { useEffect, useRef } from 'react';
+import * as THREE from "three";
 import { useFrame, } from "@react-three/fiber";
-import { useGLTF } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei';
 
+
+/**
+ * Renders the model with the animations that are sent in as props. Refreshes the model on every change
+
+ * @param props 
+ * @returns rendered model
+ */
 export default function Model(props) {
     let mixer = useRef();
     const gltf = useGLTF(props.value);

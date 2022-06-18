@@ -1,7 +1,8 @@
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import styles from "./LoadAnimations.module.css"
+import styles from "./LoadAnimations.module.css";
 const json = require("./animations.json");
 
+/* Loading the animation from the json file. */
 export default function AnimationList(props){
 const singleAnim = new GLTFLoader();
 function loadSelectedAnim(index){
@@ -11,6 +12,10 @@ function loadSelectedAnim(index){
             }           
     )
 }
+/**
+ * It creates a button for each animation in the json array.
+ * @returns An array of buttons.
+ */
 function CreateAnimButtons(){
     let diffButtons = []
     for(let i = 0; i < json.length; i++){

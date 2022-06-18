@@ -26,6 +26,10 @@ export default function Upload(props){
       const handleClose = () => {
         setState({ ...state, open: false });
       };
+    /**
+     * It takes a file, converts it to a glb, and uploads it to firebase storage
+     * @returns The result is a blob of data.
+     */
     function uploadFile(){
         if(props.fileToUpload == null || props.allAnims.length < 2) return alert("add animations");
         const fileRef = ref(storage, `animatedModels/${props.fileToUpload.scene.name + v4()}.glb`)
@@ -35,22 +39,15 @@ export default function Upload(props){
             animations: props.allAnims
             // includeCustomExtensions: true
           }
-          
         const exporter = new GLTFExporter();
-        
         exporter.parse(
             props.fileToUpload.scene,
             function(result){
                 console.log(result)
                 uploadBytes(fileRef, result).then(()=>{
-                    setState({ open: true});
-                    
+                    setState({ open: true});  
                 })
             },options)
-        // uploadBytes(fileRef, props.fileToUpload).then(()=>{
-        //     alert("uploaded")
-        // })
-        // console.log(props.fileToUpload.scene.name)
     }
     return(
         <div>
@@ -58,13 +55,11 @@ export default function Upload(props){
             <Snackbar autoHideDuration={4000}
                 anchorOrigin={{
                     vertical: 'bottom',
-                    horizontal: 'left',
-                  }}
+                    horizontal: 'left',}}
                 open={open}
                 onClose={handleClose}
                 message="Your model has been uploaded"
-                key={vertical + horizontal}
-            />
+                key={vertical + horizontal}/>
         </div>
     )
 }
