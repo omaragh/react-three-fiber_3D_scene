@@ -16,10 +16,10 @@ const LightTooltip = withStyles(theme =>({
 export default function DroppedEnv(props){
   const [currentEnv, setEnv] = useState(props.env);
 
-  useEffect(()=>{
-    props.changeEnv(currentEnv)
-  }, [currentEnv]);
-  
+ useEffect(()=>{
+  props.changeEnv(currentEnv)
+ })
+
   return (
     <LightTooltip title="Change the enviroment" placement="right" arrow>
     <Box sx={{ maxWidth: 200 }}>

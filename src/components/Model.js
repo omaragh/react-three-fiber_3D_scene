@@ -30,15 +30,7 @@ export default function Model(props) {
                 action.weight = props.sliderVal2            
                 action.play();
             }
-            // mixer.current = new THREE.AnimationMixer(gltf.scene)
-            // if(props.val){  
-            //     for(let i = 0; i < gltf.animations.length; i++){
-            //         const animation = mixer.current.clipAction(allAnimations[i]);
-            //         animation.play();
-            //     }
-            // }
         }
-        
     }, [gltf, allAnimations, props.action, props.sliderVal1, props.sliderVal2])
     
     useFrame((state, delta) => {

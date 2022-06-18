@@ -17,7 +17,7 @@ import { withStyles } from '@mui/styles';
 import DroppedEnv from "./Dropdown";
 
 function CanvasField() { 
-  const [url, setUrl] = useState("./botTest.glb")
+  const [url, setUrl] = useState("/botTest.glb")
   const [movement, setMovement] = useState(0)
   const [allAnimData, setAllAnimData] = useState([])
   const [downloadData, setDownload] = useState();

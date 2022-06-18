@@ -7,7 +7,7 @@ function Nav(props){
         console.log(props)
         return (
           <div className="nav">
-            <img onClick={props.home} className={styles.logo}src="./logo3.svg" width="150px" alt="logo"></img>
+            <img onClick={props.home} className={styles.logo}src="/logo3.svg" width="150px" alt="logo"></img>
             {props.currentShow?
             <button onClick={props.page} className={styles.UserIcon}><FaUserAlt/> Community hub</button>:
             <button onClick={props.page} className={styles.UserIcon}><CgEditUnmask/>3D Editor</button>}

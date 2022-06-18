@@ -10,7 +10,7 @@ return(
 <div>
     <header className={styles.headerInfo}>
     <button onClick={props.page}> <h1>Start animating</h1></button>
-    <iframe src='https://my.spline.design/untitled-971b6990cad7ed57b43d1c81e0b9d197/' frameborder='0' width='110%' height='1080px'></iframe>
+    <iframe title="3Delements" src='https://my.spline.design/untitled-971b6990cad7ed57b43d1c81e0b9d197/' frameborder='0' width='110%' height='1080px'></iframe>
     </header>
     <main>
         <section id="about" className={styles.container}>
@@ -97,9 +97,9 @@ return(
     </main>
     <footer className={styles.siteFooter}>
         <div className={styles.socialIcons}>
-            <a className={styles.github} href="#"><GrGithub/></a>
-            <a className={styles.instagram} href="#"><GrInstagram/></a>
-            <a className={styles.linkedIn} href="#"><GrLinkedin/></a>  
+            <a className={styles.github} href="https://github.com/omaragh/react-three-fiber_3D_scene"><GrGithub/></a>
+            <a className={styles.instagram} href="https://www.instagram.com/omar.agh/"><GrInstagram/></a>
+            <a className={styles.linkedIn} href="https://www.linkedin.com/in/omar-aghallaj/"><GrLinkedin/></a>  
         </div>
             <hr/>
         <div>
