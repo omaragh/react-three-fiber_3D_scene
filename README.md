@@ -1,23 +1,34 @@
-# Getting Started with Create React App
+# Anymate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This documentation can be used to maintain the web app. Anymate is a web tool that allows users to animate a 3D humanoid model with animations available. To then be downloaded and loaded into a 3D software. As well as the option to share it on the community hub so others can download your creation.
 
-## Available Scripts
+## Technology
 
-In the project directory, you can run:
+React.js 17.0.2
+React three fiber 7.0.27
+Node.js 14.15.1
+Firebase 9.8.1
 
-### `npm start`
+## Getting started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To use this project locally, follow the steps below.
+• Create a local folder where you initialize the github repo
+• Then install all the necessary packages by typing “Npm install” in the terminal
+• Next, to run the app, type “npm start” in the terminal, after which the web app will launch on a localhost server.
+• If it doesn't open, browse to [http://localhost:3000] to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### `Customize animations`
+To change the animations, do the following.
+• In public/anims you add the animation files (in type .glb or .gltf)
+• In src/components/animations.json you will find the collection of local animations. Here you can enter the necessary data:
+- “name” : {the name of the animation}
+- “url”: {the link to the animation in the public/anims folder}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `cloud storage`
+To link your own cloud storage to the app, follow these steps:
+• In src/firebase.js you copy your own cloud storage code that you have generated on Firebase
+• Then in src/components/upload.js you change the storage name on line 24 to your storage
 
 ### `npm run build`
 
@@ -29,42 +40,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 ## Learn More
+•	Creating a scene – three.js docs (threejs.org)
+•	React Three Fiber Documentation (pmnd.rs)
+•	React – A JavaScript library for building user interfaces (reactjs.org)
+•	https://firebase.google.com/products/storage 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+Omar.aghallaj@student.ehb.be
